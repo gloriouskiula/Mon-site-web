@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos chambres | Hôtel Fakal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================
+   BASE
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#f7f6f2;
+    color:#222;
+}
+img{
+    max-width:100%;
+    display:block;
+}
+a{
+    text-decoration:none;
+}
+/* =========================
+   NAVIGATION
+========================= */
+nav{
+    min-height:82px;
+    padding:15px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 20px rgba(0,0,0,.08);
+}
+nav h1{
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    font-weight:600;
+    color:#222;
+    letter-spacing:1px;
+}
+.nav-icons{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+.nav-icons img{
+    width:25px;
+    height:25px;
+    object-fit:contain;
+    cursor:pointer;
+    transition:.3s;
+}
+.nav-icons img.me{
+    width:30px;
+    height:30px;
+}
+.nav-icons img:hover{
+    transform:scale(1.15);
+}
+/* =========================
+   TITRE
+========================= */
+.page-title{
+    text-align:center;
+    padding:60px 20px 20px;
+}
+.page-title span{
+    display:block;
+    color:#b28b45;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+.page-title h2{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+.page-title p{
+    color:#777;
+    font-size:14px;
+}
+/* =========================
+   GRILLE DES CHAMBRES
+========================= */
+.rooms{
+    width:90%;
+    max-width:1250px;
+    margin:35px auto 80px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+.room-card{
+    background:#fff;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.09);
+    transition:.35s;
+}
+.room-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.16);
+}
+.room-image{
+    height:245px;
+    overflow:hidden;
+}
+.room-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
+}
+.room-card:hover .room-image img{
+    transform:scale(1.07);
+}
+.room-info{
+    padding:20px;
+}
+.room-info h4{
+    font-family:'Playfair Display',serif;
+    font-size:20px;
+    margin-bottom:12px;
+}
+.rating{
+    display:inline-block;
+    background:#17265b;
+    color:#fff;
+    padding:5px 8px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:700;
+    margin-right:7px;
+}
+.description{
+    color:#777;
+    font-size:12px;
+    line-height:1.6;
+}
+.price-row{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    margin-top:20px;
+}
+.price-label{
+    color:#888;
+    font-size:11px;
+}
+.price{
+    color:#222;
+    font-size:23px;
+    font-weight:700;
+}
+.currency{
+    font-size:12px;
+    color:#777;
+}
+/* =========================
+   SECTION CHAMBRES
+========================= */
+.section-title{
+    text-align:center;
+    margin:80px 20px 35px;
+}
+.section-title span{
+    color:#b28b45;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+.section-title h2{
+    font-family:'Playfair Display',serif;
+    font-size:34px;
+    margin:10px 0;
+}
+.section-title p{
+    color:#777;
+    font-size:14px;
+}
+/* =========================
+   GRANDES CARTES
+========================= */
+.featured{
+    width:90%;
+    max-width:1000px;
+    margin:30px auto;
+    display:flex;
+    background:#fff;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 10px 35px rgba(0,0,0,.10);
+    transition:.35s;
+}
+.featured:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 45px rgba(0,0,0,.15);
+}
+.featured-image{
+    width:45%;
+    min-height:260px;
+}
+.featured-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.featured-info{
+    flex:1;
+    padding:35px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.featured-info h4{
+    font-family:'Playfair Display',serif;
+    font-size:27px;
+    margin-bottom:15px;
+}
+.featured-info .rating{
+    width:max-content;
+    margin-bottom:12px;
+}
+.featured-info .pos{
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+}
+.featured-price{
+    margin-top:25px;
+}
+.featured-price small{
+    display:block;
+    color:#888;
+    margin-bottom:4px;
+}
+.featured-price strong{
+    font-size:30px;
+}
+/* =========================
+   BOUTON
+========================= */
+.reserve-btn{
+    width:max-content;
+    margin-top:20px;
+    padding:11px 20px;
+    background:#b28b45;
+    color:#fff;
+    border-radius:3px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.5px;
+    transition:.3s;
+}
+.reserve-btn:hover{
+    background:#8f6c32;
+    transform:translateY(-2px);
+}
+/* =========================
+   FOOTER
+========================= */
+footer{
+    margin-top:100px;
+    background:#111;
+    color:#fff;
+    border-top:4px solid #b28b45;
+    padding:55px 8% 30px;
+}
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr;
+    gap:60px;
+}
+.footer-column h3{
+    font-family:'Playfair Display',serif;
+    font-size:20px;
+    margin-bottom:20px;
+}
+.footer-column p,
+.footer-column a{
+    color:#aaa;
+    font-size:12px;
+    line-height:2;
+}
+.footer-column a{
+    display:block;
+    transition:.3s;
+}
+.footer-column a:hover{
+    color:#d5b46a;
+    padding-left:5px;
+}
+.footer-logo{
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    margin-bottom:15px;
+}
+.footer-description{
+    color:#aaa;
+    font-size:12px;
+    line-height:1.8;
+    max-width:300px;
+}
+.footer-bottom{
+    max-width:1200px;
+    margin:45px auto 0;
+    padding-top:25px;
+    border-top:1px solid #333;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    color:#888;
+    font-size:11px;
+}
+.footer-bottom-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.footer-bottom-left img{
+    width:25px;
+    height:25px;
+}
+.social{
+    display:flex;
+    gap:12px;
+}
+.social img{
+    width:32px;
+    height:32px;
+    object-fit:contain;
+    transition:.3s;
+}
+.social img:hover{
+    transform:translateY(-3px);
+}
+/* =========================
+   TABLETTE
+========================= */
+@media(max-width:1050px){
+    .rooms{
+        grid-template-columns:repeat(2,1fr);
+    }
+    .footer-container{
+        grid-template-columns:1fr 1fr;
+    }
+    .footer-brand{
+        grid-column:1/-1;
+    }
+}
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:700px){
+    nav{
+        flex-direction:column;
+        gap:15px;
+        padding:18px;
+    }
+    nav h1{
+        font-size:23px;
+    }
+    .rooms{
+        grid-template-columns:1fr;
+        width:92%;
+    }
+    .page-title{
+        padding-top:40px;
+    }
+    .page-title h2{
+        font-size:30px;
+    }
+    .section-title h2{
+        font-size:28px;
+    }
+    .featured{
+        flex-direction:column;
+        width:92%;
+    }
+    .featured-image{
+        width:100%;
+        height:260px;
+    }
+    .featured-info{
+        padding:25px;
+    }
+    .featured-info h4{
+        font-size:23px;
+    }
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+/* =========================
+   PETIT MOBILE
+========================= */
+@media(max-width:400px){
+    .nav-icons{
+        gap:12px;
+    }
+    .page-title h2{
+        font-size:26px;
+    }
+    .room-image{
+        height:220px;
+    }
+    .room-info{
+        padding:17px;
+    }
+    .featured-info{
+        padding:20px;
+    }
+}
+</style>
+</head>
+<body>
+<!-- =========================
+     NAVIGATION
+========================= -->
+<nav>
+<h1>HÔTEL FAKAL</h1>
+</nav>
+<!-- =========================
+     INTRODUCTION
+========================= -->
+<section class="page-title">
+<span>Découvrez notre établissement</span>
+<h2>Nos chambres</h2>
+<p>
+Des espaces confortables et élégants adaptés à chaque séjour.
+</p>
+</section>
+<!-- =========================
+     PREMIÈRES CHAMBRES
+========================= -->
+<section class="rooms">
+<div class="room-card">
+<div class="room-image">
+<img src="images/simple/C.standard.jpeg"
+alt="Chambre Simple B1">
+</div>
+<div class="room-info">
+<h4>Simple B1</h4>
+<p class="description">
+<span class="rating">5.2</span>
+Normal : Beaucoup ont apprécié.
+</p>
+<div class="price-row">
+<div class="price-label">
+À partir de
+</div>
+<div>
+<span class="price">$25</span>
+<span class="currency">/ nuit</span>
+</div>
+</div>
+</div>
+</div>
+<div class="room-card">
+<div class="room-image">
+<img src="images/double/Chambre-9bis.jpg"
+alt="Chambre Double B1">
+</div>
+<div class="room-info">
+<h4>Double B1</h4>
+<p class="description">
+<span class="rating">6.4</span>
+Normal : Ont suscité l'enthousiasme général.
+</p>
+<div class="price-row">
+<div class="price-label">
+À partir de
+</div>
+<div>
+<span class="price">$40</span>
+<span class="currency">/ nuit</span>
+</div>
+</div>
+</div>
+</div>
+<div class="room-card">
+<div class="room-image">
+<img src="images/double/tipologie-lusso.webp"
+alt="Chambre Double A3">
+</div>
+<div class="room-info">
+<h4>Double A3</h4>
+<p class="description">
+<span class="rating">8.3</span>
+Exceptionnel : Unanimement appréciés.
+</p>
+<div class="price-row">
+<div class="price-label">
+À partir de
+</div>
+<div>
+<span class="price">$50</span>
+<span class="currency">/ nuit</span>
+</div>
+</div>
+</div>
+</div>
+<div class="room-card">
+<div class="room-image">
+<img src="images/double/IMG_0717-1.jpg"
+alt="Chambre Double S2">
+</div>
+<div class="room-info">
+<h4>Double S2</h4>
+<p class="description">
+<span class="rating">6.2</span>
+Hors du commun : Qui ne laissera personne indifférent.
+</p>
+<div class="price-row">
+<div class="price-label">
+À partir de
+</div>
+<div>
+<span class="price">$50</span>
+<span class="currency">/ nuit</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
+     MEILLEURES CHAMBRES
+========================= -->
+<section class="section-title">
+<span>Les mieux notées</span>
+<h2>Séjournez dans nos chambres les mieux notées</h2>
+<p>
+Nous avons tout ce qu'il vous faut pour vous satisfaire au mieux.
+</p>
+</section>
+<section class="rooms">
+<div class="room-card">
+<div class="room-image">
+<img src="images/double/HotelDiana_23Double_M19A7843.webp"
+alt="Chambre Double A1">
+</div>
+<div class="room-info">
+<h4>Double A1</h4>
+<p class="description">
+<span class="rating">7.0</span>
+Hors du commun : Très appréciés du public.
+</p>
+<div class="price-row">
+<div class="price-label">À partir de</div>
+<div>
+<span class="price">$50</span>
+<span class="currency">/ nuit</span>
+</div>
+</div>
+</div>
+</div>
+<div class="room-card">
+<div class="room-image">
+<img src="images/familiale/chambreexecutive.jpg"
+alt="Family B2">
+</div>
+<div class="room-info">
+<h4>Family B2</h4>
+<p class="description">
+<span class="rating">7.1</span>
+Exceptionnel : Plein de gens adorent ça !
+</p>
+<div class="price-row">
+<div class="price-label">À partir de</div>
+<div>
+<span class="price">$80</span>
+<span class="currency">/ nuit</span>
+</div>
+</div>
+</div>
+</div>
+<div class="room-card">
+<div class="room-image">
+<img src="images/double/maisonbonte.jpg"
+alt="Chambre Double S1">
+</div>
+<div class="room-info">
+<h4>Double S1</h4>
+<p class="description">
+<span class="rating">8.3</span>
+Remarquable : Un succès auprès de tous.
+</p>
+<div class="price-row">
+<div class="price-label">À partir de</div>
+<div>
+<span class="price">$50</span>
+<span class="currency">/ nuit</span>
+</div>
+</div>
+</div>
+</div>
+<div class="room-card">
+<div class="room-image">
+<img src="images/double/OIP.jpeg"
+alt="Chambre Double B2">
+</div>
+<div class="room-info">
+<h4>Double B2</h4>
+<p class="description">
+<span class="rating">6.8</span>
+Fabuleux : Pour tous les goûts.
+</p>
+<div class="price-row">
+<div class="price-label">À partir de</div>
+<div>
+<span class="price">$40</span>
+<span class="currency">/ nuit</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
+     CHAMBRES PRÉFÉRÉES
+========================= -->
+<section class="section-title">
+<span>Les préférées de nos clients</span>
+<h2>Les chambres que les clients adorent</h2>
+<p>
+Séjournez dans le confort pour une expérience plus captivante.
+</p>
+</section>
+<!-- FAMILY A1 -->
+<section class="featured">
+<div class="featured-image">
+<img src="images/familiale/chambre-familiale-2.jpg"
+alt="Family A1">
+</div>
+<div class="featured-info">
+<h4>Family A1</h4>
+<span class="rating">8.2</span>
+<p class="pos">
+Exceptionnel pour une famille.
+</p>
+<div class="featured-price">
+<small>À partir de</small>
+<strong>$100</strong>
+</div>
+<a href="Reservations.html" class="reserve-btn">
+RÉSERVER
+</a>
+</div>
+</section>
+<!-- SIMPLE S1 -->
+<section class="featured">
+<div class="featured-image">
+<img src="images/simple/Chambre-single-standard.jpg"
+alt="Simple S1">
+</div>
+<div class="featured-info">
+<h4>Simple S1</h4>
+<span class="rating">7.8</span>
+<p class="pos">
+Spacieux : Un succès garanti.
+</p>
+<div class="featured-price">
+<small>À partir de</small>
+<strong>$35</strong>
+</div>
+<a href="Reservations.html" class="reserve-btn">
+RÉSERVER
+</a>
+</div>
+</section>
+<!-- FAMILY B1 -->
+<section class="featured">
+<div class="featured-image">
+<img src="images/familiale/R.jpeg"
+alt="Family B1">
+</div>
+<div class="featured-info">
+<h4>Family B1</h4>
+<span class="rating">7.5</span>
+<p class="pos">
+Remarquable pour une famille.
+</p>
+<div class="featured-price">
+<small>À partir de</small>
+<strong>$80</strong>
+</div>
+<a href="Reservations.html" class="reserve-btn">
+RÉSERVER
+</a>
+</div>
+</section>
+<!-- DOUBLE A2 -->
+<section class="featured">
+<div class="featured-image">
+<img src="images/simple/pexels-pixabay-164595-scaled.jpg"
+alt="Double A2">
+</div>
+<div class="featured-info">
+<h4>Double A2</h4>
+<span class="rating">6.7</span>
+<p class="pos">
+Fabuleux pour un jeune couple.
+</p>
+<div class="featured-price">
+<small>À partir de</small>
+<strong>$50</strong>
+</div>
+<a href="Reservations.html" class="reserve-btn">
+RÉSERVER
+</a>
+</div>
+</section>
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+<div class="footer-container">
+<div class="footer-column footer-brand">
+<div class="footer-logo">
+FLAT HÔTEL FAKAL
+</div>
+<p class="footer-description">
+Votre confort, notre priorité.
+Découvrez un établissement pensé pour
+vous offrir confort, tranquillité et une
+expérience agréable à Kinshasa.
+</p>
+</div>
+<div class="footer-column">
+<h3>Service clients</h3>
+<a href="">Aide du Service Clients</a>
+<a href="">Questions fréquemment posées</a>
+<a href="">Déclaration sur la protection des données</a>
+<a href="">Conditions générales d'utilisation</a>
+</div>
+<div class="footer-column">
+<h3>À propos</h3>
+<a href="">À propos du Flat Hôtel Fakal</a>
+<a href="">L'historique de l'hôtel</a>
+<a href="">Découvrir les séjours au mois</a>
+<a href="">Réservations de restaurant</a>
+<a href="site_web.html">
+Contacts de l'entreprise
+</a>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-bottom-left">
+<img src="images/monde.png" alt="Langue">
+<span>Français</span>
+<span>|</span>
+<span>Cookies</span>
+</div>
+<div class="social">
+<a href="">
+<img src="images/insta_63964.png"
+alt="Instagram">
+</a>
+<a href="">
+<img src="images/facebook-icon-logo.png"
+alt="Facebook">
+</a>
+</div>
+</div>
+</footer>
+</body>
