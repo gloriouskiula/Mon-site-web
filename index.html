@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flat Hôtel Fakal | Kinshasa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================
+   BASE
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#f7f5f1;
+    color:#222;
+}
+img{
+    max-width:100%;
+}
+a{
+    text-decoration:none;
+}
+/* =========================
+   NAVIGATION
+========================= */
+nav{
+    height:82px;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 20px rgba(0,0,0,.08);
+}
+.logo{
+    font-family:'Playfair Display',serif;
+    font-size:25px;
+    color:#222;
+    letter-spacing:1px;
+}
+.onglets{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+.onglets a{
+    color:#333;
+    font-size:13px;
+    font-weight:600;
+    transition:.3s;
+    position:relative;
+}
+.onglets a:after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:#b28b45;
+    transition:.3s;
+}
+.onglets a:hover{
+    color:#b28b45;
+}
+.onglets a:hover:after{
+    width:100%;
+}
+/* =========================
+   HERO
+========================= */
+header{
+    min-height:600px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+    color:#fff;
+    background:
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.72)
+    ),
+    url('images/Table-dans-un-restaurant-sombre.jpg')
+    center/cover no-repeat;
+    position:relative;
+}
+header:after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:#b28b45;
+}
+.hero-small{
+    font-size:13px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#e1c58c;
+    margin-bottom:18px;
+}
+header h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(42px,7vw,75px);
+    font-weight:600;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+header h3{
+    font-size:17px;
+    font-weight:400;
+    color:#eee;
+    margin-bottom:35px;
+}
+.hero-btn{
+    display:inline-block;
+    padding:14px 35px;
+    border:1px solid #fff;
+    border-radius:2px;
+    color:#222;
+    background:#fff;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.3s;
+}
+.hero-btn:hover{
+    background:#b28b45;
+    border-color:#b28b45;
+    color:#fff;
+    transform:translateY(-3px);
+}
+/* =========================
+   TITRE SECTION
+========================= */
+.section-title{
+    text-align:center;
+    margin:75px 20px 20px;
+}
+.section-title span{
+    color:#b28b45;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+.section-title h2{
+    font-family:'Playfair Display',serif;
+    font-size:36px;
+    font-weight:600;
+    margin-top:10px;
+}
+.section-title p{
+    max-width:600px;
+    margin:12px auto;
+    color:#777;
+    font-size:14px;
+}
+/* =========================
+   CHAMBRES
+========================= */
+.room-section{
+    max-width:1200px;
+    margin:75px auto;
+    padding:0 30px;
+    display:flex;
+    align-items:center;
+    gap:60px;
+}
+.room-section.reverse{
+    flex-direction:row-reverse;
+}
+.box{
+    width:50%;
+    background:#14204b;
+    color:white;
+    padding:8px;
+    position:relative;
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+    transition:.4s;
+}
+.box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 55px rgba(0,0,0,.25);
+}
+.content{
+    border:1px solid rgba(205,170,100,.7);
+    padding:38px 35px;
+}
+.category{
+    color:#d5b46a;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+.content h2{
+    font-family:'Playfair Display',serif;
+    font-size:27px;
+    margin-bottom:20px;
+}
+.content p{
+    color:#d9d9d9;
+    font-size:13px;
+    line-height:1.9;
+    text-align:justify;
+}
+.right{
+    width:50%;
+    overflow:hidden;
+}
+.right img{
+    width:100%;
+    height:410px;
+    object-fit:cover;
+    display:block;
+    transition:.6s;
+}
+.right:hover img{
+    transform:scale(1.05);
+}
+/* =========================
+   PETITS AVANTAGES
+========================= */
+.features{
+    max-width:1050px;
+    margin:90px auto;
+    padding:45px 30px;
+    display:flex;
+    justify-content:space-around;
+    text-align:center;
+    background:#fff;
+    box-shadow:0 10px 35px rgba(0,0,0,.07);
+}
+.feature{
+    flex:1;
+    padding:10px 25px;
+}
+.feature:not(:last-child){
+    border-right:1px solid #ddd;
+}
+.feature-icon{
+    font-size:28px;
+    margin-bottom:12px;
+}
+.feature h3{
+    font-family:'Playfair Display',serif;
+    margin-bottom:8px;
+}
+.feature p{
+    color:#777;
+    font-size:12px;
+    line-height:1.6;
+}
+/* =========================
+   FOOTER
+========================= */
+footer{
+    background:#101010;
+    color:#fff;
+    padding:65px 8% 25px;
+    border-top:4px solid #b28b45;
+}
+.footer-top{
+    display:flex;
+    justify-content:space-between;
+    gap:60px;
+    padding-bottom:45px;
+}
+.footer-brand{
+    max-width:330px;
+}
+.footer-brand h2{
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    margin-bottom:15px;
+}
+.footer-brand p{
+    color:#aaa;
+    font-size:13px;
+    line-height:1.8;
+}
+.footer-services{
+    display:flex;
+    gap:55px;
+    flex-wrap:wrap;
+}
+.service{
+    max-width:220px;
+}
+.service h3{
+    color:#fff;
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    margin-bottom:12px;
+}
+.service p{
+    color:#aaa;
+    font-size:12px;
+    line-height:1.8;
+}
+.contact{
+    border-top:1px solid #333;
+    padding-top:25px;
+    color:#999;
+    font-size:12px;
+    line-height:2;
+}
+.contact strong{
+    color:#ddd;
+}
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:850px){
+    nav{
+        height:auto;
+        padding:18px 20px;
+        flex-direction:column;
+        gap:15px;
+    }
+    .onglets{
+        gap:18px;
+    }
+    header{
+        min-height:500px;
+    }
+    header h1{
+        font-size:42px;
+    }
+    .room-section,
+    .room-section.reverse{
+        flex-direction:column;
+        margin:55px auto;
+    }
+    .box,
+    .right{
+        width:100%;
+    }
+    .right img{
+        height:320px;
+    }
+    .features{
+        flex-direction:column;
+        gap:30px;
+        margin:60px 20px;
+    }
+    .feature:not(:last-child){
+        border-right:0;
+        border-bottom:1px solid #ddd;
+        padding-bottom:25px;
+    }
+    .footer-top{
+        flex-direction:column;
+    }
+}
+@media(max-width:500px){
+    .logo{
+        font-size:21px;
+    }
+    .onglets{
+        gap:13px;
+    }
+    .onglets a{
+        font-size:11px;
+    }
+    header h1{
+        font-size:36px;
+    }
+    header h3{
+        font-size:14px;
+    }
+    .section-title h2{
+        font-size:29px;
+    }
+    .content{
+        padding:28px 22px;
+    }
+    .content h2{
+        font-size:23px;
+    }
+    .content p{
+        font-size:12px;
+    }
+    .footer-services{
+        flex-direction:column;
+        gap:30px;
+    }
+}
+</style>
+</head>
+<body>
+<!-- =========================
+     NAVIGATION
+========================= -->
+<nav>
+<div class="logo">
+FLAT HÔTEL FAKAL
+</div>
+<div class="onglets">
+<a href="Reservations.html">RÉSERVATION</a>
+<a href="#chambres">CHAMBRES</a>
+<a href="#contact">CONTACT</a>
+</div>
+</nav>
+<!-- =========================
+     ACCUEIL
+========================= -->
+<header>
+<div class="hero-small">
+Bienvenue à Kinshasa
+</div>
+<h1>FLAT HÔTEL FAKAL</h1>
+<h3>
+Votre confort, notre priorité
+</h3>
+<a href="Produit.html" class="hero-btn">
+DÉCOUVRIR NOS CHAMBRES
+</a>
+</header>
+<!-- =========================
+     TITRE
+========================= -->
+<div class="section-title" id="chambres">
+<span>Nos hébergements</span>
+<h2>Des chambres pensées pour vous</h2>
+<p>
+Découvrez nos différentes catégories de chambres,
+conçues pour vous offrir confort, élégance et tranquillité.
+</p>
+</div>
+<!-- =========================
+     CHAMBRE SIMPLE
+========================= -->
+<section class="room-section">
+<div class="box">
+<div class="content">
+<div class="category">
+Chambre 01
+</div>
+<h2>
+Chambre Simple / Standard
+</h2>
+<p>
+Une chambre simple standard est le type de chambre
+d’hôtel le plus courant. Elle propose des services
+tels que le nettoyage ou un mini-bar.
+<br><br>
+Elle offre un espace confortable et pratique pour
+les voyageurs recherchant un séjour agréable à un
+prix accessible.
+<br><br>
+La chambre supérieure est légèrement plus grande
+et peut également offrir une vue plus agréable
+ou des équipements supplémentaires.
+</p>
+</div>
+</div>
+<div class="right">
+<img src="images/simple/C.standard.jpeg"
+alt="Chambre simple standard">
+</div>
+</section>
+<!-- =========================
+     CHAMBRE DOUBLE STANDARD
+========================= -->
+<section class="room-section reverse">
+<div class="box">
+<div class="content">
+<div class="category">
+Chambre 02
+</div>
+<h2>
+Chambre Double / Standard
+</h2>
+<p>
+La chambre double offre davantage d’espace et
+convient parfaitement aux couples ou aux petites
+familles.
+<br><br>
+Elle dispose notamment d'une douche ou baignoire,
+d'un petit réfrigérateur, d'une télévision écran
+plat, d'une connexion WIFI et de la climatisation.
+<br><br>
+Tout est pensé pour vous garantir un séjour
+confortable et agréable à l'hôtel Fakal.
+</p>
+</div>
+</div>
+<div class="right">
+<img src="images/double/tipologie-lusso.webp"
+alt="Chambre double standard">
+</div>
+</section>
+<!-- =========================
+     CHAMBRE DOUBLE SUPÉRIEURE
+========================= -->
+<section class="room-section">
+<div class="box">
+<div class="content">
+<div class="category">
+Chambre 03
+</div>
+<h2>
+Chambre Double / Supérieure
+</h2>
+<p>
+Nos chambres doubles supérieures sont équipées
+d'un lit double ou de deux lits séparés à la demande.
+<br><br>
+Elles disposent d'une salle de bain avec baignoire,
+de la climatisation, d'un dressing, d'un mini-bar,
+d'un petit réfrigérateur, du WIFI et d'une télévision
+dernière génération.
+<br><br>
+Un petit déjeuner continental peut également vous
+être servi chaque matin, directement en chambre
+sur demande.
+</p>
+</div>
+</div>
+<div class="right">
+<img src="images/double/maisonbonte.jpg"
+alt="Chambre double supérieure">
+</div>
+</section>
+<!-- =========================
+     CHAMBRE FAMILIALE
+========================= -->
+<section class="room-section reverse">
+<div class="box">
+<div class="content">
+<div class="category">
+Chambre 04
+</div>
+<h2>
+Chambre Familiale
+</h2>
+<p>
+Notre chambre familiale peut accueillir jusqu'à
+5 personnes et constitue un espace idéal pour
+les familles ou les groupes d'amis.
+<br><br>
+Elle dispose d'une terrasse avec une belle vue
+sur la ville, d'un grand lit, d'un lit simple et
+d'un canapé convertible.
+<br><br>
+Vous trouverez également une salle de bain,
+une armoire, la climatisation, un réfrigérateur,
+un mini-bar, une télévision écran plat et le
+WIFI gratuit.
+</p>
+</div>
+</div>
+<div class="right">
+<img src="images/familiale/chambre-familiale-2.jpg"
+alt="Chambre familiale">
+</div>
+</section>
+<!-- =========================
+     AVANTAGES
+========================= -->
+<section class="features">
+<div class="feature">
+<div class="feature-icon">🛎️</div>
+<h3>Réservation facile</h3>
+<p>
+Réservez votre chambre rapidement et simplement.
+</p>
+</div>
+<div class="feature">
+<div class="feature-icon">📶</div>
+<h3>WiFi gratuit</h3>
+<p>
+Restez connecté durant tout votre séjour.
+</p>
+</div>
+<div class="feature">
+<div class="feature-icon">🚗</div>
+<h3>Parking</h3>
+<p>
+Un parking gratuit est disponible sur place.
+</p>
+</div>
+<div class="feature">
+<div class="feature-icon">☕</div>
+<h3>Petit déjeuner</h3>
+<p>
+Profitez d'un petit déjeuner continental.
+</p>
+</div>
+</section>
+<!-- =========================
+     FOOTER
+========================= -->
+<footer id="contact">
+<div class="footer-top">
+<div class="footer-brand">
+<h2>FLAT HÔTEL FAKAL</h2>
+<p>
+Un hôtel où confort, élégance et tranquillité
+se rencontrent pour vous offrir une expérience
+inoubliable à Kinshasa.
+</p>
+</div>
+<div class="footer-services">
+<div class="service">
+<h3>Réservation</h3>
+<p>
+Réservez votre séjour en quelques clics.
+Choisissez votre chambre, vos dates et
+profitez de nos services.
+</p>
+</div>
+<div class="service">
+<h3>Lavage auto</h3>
+<p>
+Profitez d'un nettoyage intérieur et extérieur
+méticuleux de votre véhicule avec des produits
+de qualité.
+</p>
+</div>
+<div class="service">
+<h3>Satisfaction</h3>
+<p>
+Votre satisfaction est notre priorité.
+Nous nous engageons à vous offrir
+un séjour exceptionnel.
+</p>
+</div>
+</div>
+</div>
+<div class="contact">
+<strong>📞 Téléphone :</strong>
++243 99 75 46 109
+&nbsp; | &nbsp;
+<strong>WhatsApp :</strong>
++243 97 61 61 566
+<br>
+<strong>📍 Adresse :</strong>
+58, Av. Mbavu, Kinshasa / Bandalungwa
+<br>
+<strong>✉️ E-mail :</strong>
+Info.flathôtelfakal@gmail.com
+<br><br>
+© 2024 Flat Hôtel FAKAL™ — Tous droits réservés.
+</div>
+</footer>
+</body>
+</html>
