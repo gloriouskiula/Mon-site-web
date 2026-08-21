@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Réservation</title>
+	<link rel="stylesheet" type="text/css" href="Reservation.css">
+</head>
+<body>
+	<center>
+		<form method="post" action="ajouterClient.php" enctype="multipart/form-data">
+			<a href="Ets_Fakal.html">ACCUEIL</a>
+		<h1>RÉSERVATION</h1>
+		<hr size="40" color="#c1e6e6">
+		<fieldset>
+		<legend>Information personnelle</legend>
+		<p>
+			<label for="nom" class="identifie">Nom</label> <br>
+		<input type="text" name="txtnom" placeholder="Taper votre nom" size="80%" maxlength="20" required=""> <br>
+		</p>
+		<p>
+			<label for="post_nom" class="identifie">Post-nom</label> <br>
+		<input type="text" name="txtpostnom" placeholder="Taper votre post-nom" size="80%" maxlength="20" required=""> <br>
+		</p>
+		<p>
+			<label for="prenom" class="identifie">Prénom</label> <br>
+		<input type="text" name="txtprenom" placeholder="Taper votre prénom" size="80%" maxlength="20" required=""> <br>
+		</p>
+		<p>
+			<label for="sexe" class="identifie">Sexe</label> <br>
+		<input type="text" name="txtsexe" placeholder="Indiquer votre sexe" size="80%" maxlength="20" required=""> <br>
+		</p>
+		<p>
+			<label for="mail" class="identifie">E-mail</label> <br>
+			<input type="email" name="txtmail" placeholder="Ex:Gxxxxxxxxx@gmail.com" size="80%" maxlength="30" required=""> <br>
+		</p>
+		<p>
+			<label for="adresse" class="identifie">Adresse</label> <br>
+			<textarea name="txtadresse" placeholder="Ex: 13,Av.Mandariniers" size="100%" maxlength="50" required="" class="mac"></textarea>
+		</p>
+		<p>
+			<label for="tel" class="identifie">Téléphone</label> <br>
+		<input type="number" name="txttel" maxlength="20" required="" placeholder="+243" class="mac"> <br>
+		</p>
+	</fieldset>
+	<fieldset>
+		<legend>Mode de réservation</legend>
+		<p>
+			<label for="accompagnement">Type d'accompagnement</label>
+				<select required="" name="txttype">
+					<option value="Aucun">Aucun</option>
+					<option value="En couple">En couple</option>
+					<option value="En famille">En famille</option>
+				</select>
+		</p>
+		<p>
+			<label for="animal" >Avez-vous un animal de compagnie</label>
+			<input type="radio" name="txtanimal" value="Oui">Oui
+			<input type="radio" name="txtanimal" value="Non">Non
+		</p>
+		<p>
+			<label for="categorie">Catégorie de la chambre séléctionner:</label>
+		</p>
+		<p>
+			<input size="60%" type="text" name="txtcategorie" maxlength="20" required="" placeholder="Ex: Chambre double Sx" class="mac">
+		</p>
+		<p>
+			<label for="date_ar">Date d'arrivée</label>
+			<input type="datetime-local" name="txtdate_ar" required="">
+		</p>
+		<p>
+			<label for="date_de">Date de départ</label>
+			<input type="date" name="txtdate_de" required="">
+		</p>
+	</fieldset>
+		<p>
+			<div class="cont"> 
+				<button type="submit" value="VALIDER" class="envoie" id="up"><span>VALIDER</span><img src="images/2ZAX3hVsBE-3000x3000.png" height="62" width="62"></button>
+			</div>
+			<input type="reset" value="ANNULER" class="envoie" id="over"> 
+		</p>
+		<br>
+	</form>
+</center>
+</body>
+</html>
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+form{
+	margin: 0 auto;
+	font-family: 'Libre Baskerville',sans-serif;
+	background: linear-gradient(
+217deg,
+rgba(0, 0, 255, 0.2),
+rgba(0, 0, 255, 0) 70.71%),
+linear-gradient(127deg,
+rgba( 0,0, 255, 0.2),
+rgba( 0,0, 255, 0) 70.71%),
+linear-gradient(336deg,
+rgba( 0, 0,255, 0.2),
+rgba( 0, 0,255, 0) 70.71%) white;
+	color: #fff;
+}
+h1{
+	text-align: center;
+	font-family: 'Playfair Display', sans-serif;
+}
+
+label{
+	padding-right: 50px;
+	display: inline-block;
+	min-width: 100px;
+}
+
+input,textarea{
+	margin:0 30px 0 0;
+	left: 400px;
+} 
+a{
+	text-decoration: none;
+	color: black;
+}
+fieldset{
+	color: black;
+	
+}
+.envoie{
+	margin: 20px;
+	height: 50px;
+	width: 150px;
+	font-family: 'Libre Baskerville',sans-serif;
+	font-size: 14px;
+	background-color: #e1e6e6;
+	margin-left: 150px;
+	border-radius: 100px;
+	cursor: pointer;
+}
+#up{
+    margin-top: 24px;
+}
+#over:hover{
+	background: #d3d0d0;
+}
+.identifie{
+		position: absolute;
+		left: 400px;
+}
+.mac{
+	margin-left: 50px;
+	width: max;
+}
+a{
+	font-style: italic;
+	font-size: x-large;
+	padding: 1% 2% 1% 2%;
+	border-radius: 6px;
+	text-decoration:none;
+	background-color: #efefef;
+	font-family: Graceland Personal Use;
+	box-shadow:5px 5px 5px grey;
+	margin-left: -80%;
+}
+
+
+@-webkit-keyframes extend {
+   
+    }
+@keyframes extend {
+    0% {
+        width: 150px;
+        height: 50px;
+        border-radius: 100px;
+        margin-bottom: 5%;
+        } 10% {
+        width: 150px;
+        height: 50px;
+        background: #fff;
+        margin-left: 180px;
+        margin-bottom: 5px;
+        } 20% {
+        width: 150px;
+        height: 50px;
+        background: #6fb07f;
+        margin-left: 170px;
+        margin-bottom: 5px;
+        } 100% {
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        margin-left: 180px;
+        margin-bottom: 5px;
+        background: #6fb07f;
+        }
+    }
+@keyframes disappear {
+    0% {
+        opacity: 1;
+        } 20% {
+        color: white;
+        } 100% {
+        opacity: 0;
+        }
+    }
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        } 70% {
+        opacity: 0;
+        } 100% {
+        opacity: 1;
+        }
+    }
+
+.cont {
+    position: absolute;
+    width: 610px;
+    height: 10px;
+    left: 25%;
+    top: 161%;
+    margin: -118px 0 0 -325px;
+    }
+
+button {
+    border-width: 1px;
+    width: 150px;
+    border-radius: 5px;
+    background: grey;
+    position: absolute;
+    border: 1px solid #6fb07f;
+    }
+
+button > span {
+    font-size: 14px;
+    color: #000000;
+    }
+
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0
+    }
+
+button:hover {
+    -webkit-animation: extend 1s ease-in-out;
+    -ms-animation: extend 1s ease-in-out;
+    animation: extend 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards
+
+    }
+
+button:hover > span {
+    -webkit-animation: disappear 1s ease-in-out;
+    -ms-animation: disappear 1s ease-in-out;
+    animation: disappear 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards
+    }
+
+button:hover > img {
+    -webkit-animation: appear 1s ease-in-out;
+    -ms-animation: appear 1s ease-in-out;
+    animation: appear 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards
+    }
